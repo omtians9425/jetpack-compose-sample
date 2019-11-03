@@ -17,18 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //Call composable functions within setContent
         setContent {
-            MaterialTheme {
-                Greeting("Android")
-            }
+            myApp()
+        }
+    }
+}
+
+@Composable
+fun myApp() {
+    MaterialTheme {
+        Surface(color = Color.Yellow) {
+            Greeting(name = "Android")
         }
     }
 }
 
 @Composable
 fun Greeting(name: String) {
-    Surface(color = Color.Yellow) {
-        Text(text = "Hello $name!", modifier = Spacing(24.dp))
-    }
+    Text(text = "Hello $name!", modifier = Spacing(24.dp))
 }
 
 @Preview
