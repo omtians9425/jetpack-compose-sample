@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun myApp(children: @Composable() () -> Unit) {
-    MaterialTheme {
-        Surface(color = Color.Yellow) {
+    MyAppTheme {
+        Surface {
             children()
         }
     }
@@ -59,7 +59,11 @@ fun MyScreenContent(
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!", modifier = LayoutPadding(24.dp))
+    Text(
+        text = "Hello $name!",
+        modifier = LayoutPadding(24.dp),
+        style = MaterialTheme.typography().h1
+    )
 }
 
 @Model
@@ -69,7 +73,7 @@ class CounterState(var count: Int = 0)
 fun Counter(state: CounterState) {
     Button(
         onClick = { state.count++ },
-        backgroundColor = if (state.count > 5) Color.Green else Color.White
+        backgroundColor = if (state.count > 5) Color.Green else Color.Blue
     ) {
         Text(text = "I 've been clicked ${state.count} times")
     }
